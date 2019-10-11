@@ -1,0 +1,148 @@
+esphome:
+  name: light
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: "YOURSSID"
+  password: "YOURPASSWORD"
+
+light:
+  - platform: rgb
+    name: "Show Case"
+    red: output_component1
+    green: output_component2
+    blue: output_component3
+    effects:
+      - random:
+          name: "Random 1m"
+          transition_length: 10s
+          update_interval: 60s
+      - random:
+          name: "Fade"
+          transition_length: 5s
+          update_interval: 5s
+      - strobe:
+          name: "Cops"
+          colors:
+            - state: True
+              brightness: 100%
+              red: 100%
+              green: 0%
+              blue: 0%
+              duration: 50ms
+            - state: False
+              duration: 50ms
+            - state: True
+              brightness: 100%
+              red: 100%
+              green: 0%
+              blue: 0%
+              duration: 50ms
+            - state: False
+              duration: 100ms
+            - state: True
+              brightness: 100%
+              red: 0%
+              green: 0%
+              blue: 100%
+              duration: 50ms
+            - state: False
+              duration: 50ms
+            - state: True
+              brightness: 100%
+              red: 0%
+              green: 0%
+              blue: 100%
+              duration: 50ms
+            - state: False
+              duration: 100ms
+ 
+  - platform: rgb
+    name: "Main RGB"
+    red: output_component4
+    green: output_component5
+    blue: output_component6
+    effects:
+      - random:
+          name: "Random 1m"
+          transition_length: 10s
+          update_interval: 60s
+      - random:
+          name: "Fade"
+          transition_length: 5s
+          update_interval: 5s
+      - strobe:
+          name: "Cops"
+          colors:
+            - state: True
+              brightness: 100%
+              red: 100%
+              green: 0%
+              blue: 0%
+              duration: 50ms
+            - state: False
+              duration: 50ms
+            - state: True
+              brightness: 100%
+              red: 100%
+              green: 0%
+              blue: 0%
+              duration: 50ms
+            - state: False
+              duration: 100ms
+            - state: True
+              brightness: 100%
+              red: 0%
+              green: 0%
+              blue: 100%
+              duration: 50ms
+            - state: False
+              duration: 50ms
+            - state: True
+              brightness: 100%
+              red: 0%
+              green: 0%
+              blue: 100%
+              duration: 50ms
+            - state: False
+              duration: 100ms
+ 
+  - platform: monochromatic
+    name: "Star Light"
+    output: output_component7
+
+output:
+  - platform: esp8266_pwm
+    id: output_component1
+    pin: D0
+  - platform: esp8266_pwm
+    id: output_component2
+    pin: D1
+  - platform: esp8266_pwm
+    id: output_component3
+    pin: D2
+  - platform: esp8266_pwm
+    id: output_component4
+    pin: D3
+  - platform: esp8266_pwm
+    id: output_component5
+    pin: D4
+  - platform: esp8266_pwm
+    id: output_component6
+    pin: D5
+  - platform: esp8266_pwm
+    id: output_component7
+    pin: D6
+
+
+
+sensor:
+  - platform: adc
+    pin: A0
+    name: "Room Radar"
+    update_interval: 1000ms
+
+logger:
+api:
+ota:
