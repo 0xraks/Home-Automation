@@ -9,7 +9,7 @@ Follow the steps to install the following components :
 7. Samba Server to share the contents of your USB drive over the network.(Including samba Config)
 8. Raspberry Pi- Local FM transmitter.
 
-
+------------------------------------------------------------------------------------------------
 
 Congiguring Raspberry Pi
 sudo apt-get update && sudo apt-get upgrade
@@ -86,16 +86,19 @@ directory mask = 0777
 Public = yes
 Guest ok = yes
 
-
+#ADDING USER FOR SAMBA SERVER
 sudo su
 useradd NAME
 passwd NAME
 smbpasswd -a NAME
 sudo /etc/init.d/smbd restart
 
-sudo blkid (copy uuid)
+#ENABLING AUTO MOUNTING IN THE FSTAB FILE
+
+#COPY uuid
+sudo blkid
 sudo nano /etc/fstab
-UUID= #YOUR UUID# /mnt/mydisk #FSTYPE# defaults,auto,users,rw,nofail 0 0,umask=000
-Replace FSTYPE with the type of your file system, which you found in step 2 of 'Mounting a storage device' above.
+UUID= #YOUR UUID# /disk #FSTYPE# defaults,auto,users,rw,nofail 0 0,umask=000
+#Replace FSTYPE with the type of your file system, which you found in step 2 of 'Mounting a storage device' above.
 
 
