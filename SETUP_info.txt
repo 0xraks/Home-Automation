@@ -57,10 +57,11 @@ sudo chown -R plex: /opt/plexmedia
 sudo nano /etc/default/plexmediaserver.prev (change use to pi in this file)
 ------------------------------------------------------------------------------------------------------
 Raspberry Pi samba server
+#Before mounting make sure you have disbled auto mount by file manager by going into preferences int the edit menu.
 sudo lsblk
 sudo mkdir /disk
 sudo mount /dev/#NAME OF YOUR DRIVE# /disk
-sudo nana /etc/samba/smb.conf
+sudo nano /etc/samba/smb.conf
 
 
 [Piroot]
