@@ -101,4 +101,24 @@ sudo nano /etc/fstab
 UUID= #YOUR UUID# /disk #FSTYPE# defaults,auto,users,rw,nofail 0 0,umask=000
 #Replace FSTYPE with the type of your file system, which you found in step 2 of 'Mounting a storage device' above.
 
+Some Linux systems automatically mopunt the devices to /mnt or /media folders , so to disable that use:
+
+The Auto-mounting of disks in Debian-based Linux distros (and perhaps others) comes from a service called udisks2.
+
+Disabling this service will prevent any disk from automatically being mounted, while still allowing manual mounting.
+
+Disable the service - No automatic or manual starts
+
+systemctl mask udisks2
+Unmask the service - Will need to either manually run it or restart the computer
+
+systemctl unmask udisks2
+systemctl unmask udisks2.service
+Stop the service temporarily - This will not persist across restarts
+
+systemctl stop udisks2.service
+Get the status
+
+sudo systemctl status udisks2
+
 
