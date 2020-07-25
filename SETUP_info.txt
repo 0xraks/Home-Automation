@@ -31,9 +31,11 @@ sudo systemctl enable nodered.service
 Home Assistant
 sudo apt-get install libsndfile1-dev exfat-fuse exfat-utils bash jq curl avahi-daemon dbus samba samba-common-bin apt-transport-https ca-certificates socat software-properties-common apparmor-utils
 sudo curl -sL get.docker.com | sed 's/9)/10)/' | sh
-curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" >> hassio_install.sh
+ <OLD LINK DOESNT WORK - >curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" >> hassio_install.sh
+curl -sL "https://raw.githubusercontent.com/0xraks/Home-Automation/master/hassio_install.sh" >> hassio_install.sh
+
 sudo nano hassio_install.sh
-Modify install script.
+Modify install script, Ignore if already modified.
 "armv7l")
         HOMEASSISTANT_DOCKER="$DOCKER_REPO/raspberrypi3-homeassistant"
         HASSIO_DOCKER="$DOCKER_REPO/armhf-hassio-supervisor"
